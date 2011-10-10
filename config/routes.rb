@@ -1,4 +1,6 @@
 CliqSynq::Application.routes.draw do
+  get "main/index"
+
   resources :members
 
   # The priority is based upon order of creation:
