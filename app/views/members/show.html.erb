@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @member.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @member.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @member.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @member.password %>
+</p>
+
+<p>
+  <b>Street line 1:</b>
+  <%= @member.street_line_1 %>
+</p>
+
+<p>
+  <b>Street line 2:</b>
+  <%= @member.street_line_2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @member.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @member.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @member.zip %>
+</p>
+
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

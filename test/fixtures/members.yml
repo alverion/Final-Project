@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: Neftali
+  last_name: Alverio
+  email: nalverio@gmail.com
+  password: password
+  street_line_1: 130 Sedgewick Ave
+  street_line_2: 
+  city: Stratford
+  state: CT
+  zip: 06615
+
+two:
+  first_name: Vimarys
+  last_name: Alverio
+  email: valverio@gmail.com
+  password: password
+  street_line_1: 555 Main St
+  street_line_2: Apt #5
+  city: Fairfield
+  state: CT
+  zip: 06811
