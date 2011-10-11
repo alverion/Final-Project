@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = Member.order(:last_name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to members_url, notice: "Member #{@member.email} was successfully created." }
         format.json { render json: @member, status: :created, location: @member }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.update_attributes(params[:member])
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        format.html { redirect_to members_url, notice: "Member #{@member.email} was successfully updated." }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

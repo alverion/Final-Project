@@ -17,7 +17,12 @@
 
 <p>
   <b>Password:</b>
-  <%= @member.password %>
+  <%= @member.hashed_password %>
+</p>
+
+<p>
+  <b>Salt:</b>
+  <%= @member.salt %>
 </p>
 
 <p>

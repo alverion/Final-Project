@@ -4,7 +4,8 @@ class CreateMembers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email, :uniqueness => true
-      t.string :password
+      t.string :hashed_password
+      t.string :salt
       t.string :street_line_1
       t.string :street_line_2
       t.string :city

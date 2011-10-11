@@ -1,4 +1,7 @@
 <h1>Listing members</h1>
+    <% if notice %>
+        <p id="notice"><%= notice %></p>
+    <% end %>
 
 <table>
   <tr>
@@ -6,6 +9,7 @@
     <th>Last name</th>
     <th>Email</th>
     <th>Password</th>
+    <th>Salt</th>
     <th>Street line 1</th>
     <th>Street line 2</th>
     <th>City</th>
@@ -21,7 +25,8 @@
     <td><%= member.first_name %></td>
     <td><%= member.last_name %></td>
     <td><%= member.email %></td>
-    <td><%= member.password %></td>
+    <td><%= member.hashed_password %></td>
+    <td><%= member.salt %></td>
     <td><%= member.street_line_1 %></td>
     <td><%= member.street_line_2 %></td>
     <td><%= member.city %></td>
