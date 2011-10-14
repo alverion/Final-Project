@@ -11,8 +11,8 @@ class Member < ActiveRecord::Base
 
 	validate :password_must_be_present
 
-	def Member.authenticate(name, password)
-		if member = find_by_name(name)
+	def Member.authenticate(email, password)
+		if member = find_by_email(email)
 			if member.hashed_password == encrypt_password(password, member.salt)
 				member
 			end
