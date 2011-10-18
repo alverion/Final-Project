@@ -1,14 +1,14 @@
 CliqSynq::Application.routes.draw do
   
-  get 'member' => 'members#show'
-
+  get 'whoami' => 'members#whoami'
+  
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
   end
 
-  get "main/index"
+  get "members/whoami"
 
   resources :members
 

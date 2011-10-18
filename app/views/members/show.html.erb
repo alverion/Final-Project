@@ -50,6 +50,7 @@
   <%= @member.zip %>
 </p>
 
-
+<% if (session[:member_id] == @member.id) %>
 <%= link_to 'Edit', edit_member_path(@member) %> |
+<% end %>
 <%= link_to 'Back', members_path %>

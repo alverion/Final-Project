@@ -1,6 +1,6 @@
-<h1>Editing member</h1>
+<h1>Editing <%= @member.first_name %>'s Contact Info</h1>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @member %> |
-<%= link_to 'Back', members_path %>

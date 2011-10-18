@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+skip_before_filter :authorize, :only => [:new, :create]
+
   # GET /members
   # GET /members.json
   def index
@@ -13,10 +15,21 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
-    @member = Member.find(session[:member_id])
+    @member = Member.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
+      format.json { render json: @member }
+    end
+  end
+
+# GET /members/1
+  # GET /members/1.json
+  def whoami
+    @member = Member.find(session[:member_id])
+
+    respond_to do |format|
+      format.html { render action: "edit" }
       format.json { render json: @member }
     end
   end
@@ -34,7 +47,11 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
-    @member = Member.find(params[:id])
+    if (session[:member_id] == params[:id])
+      @member = Member.find(params[:id])
+    else
+      redirect_to :action => "show", :id => params[:id] #TODO: fix ugly URL and find a way to hide id from URL
+    end
   end
 
   # POST /members
@@ -60,7 +77,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.update_attributes(params[:member])
-        format.html { redirect_to members_url, notice: "Member #{@member.email} was successfully updated." }
+        format.html { redirect_to whoami_url, notice: "Member #{@member.first_name} was successfully updated." }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
