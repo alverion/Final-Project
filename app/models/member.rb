@@ -1,6 +1,9 @@
 require 'digest/sha2'
 
 class Member < ActiveRecord::Base
+	has_many :cliq_members
+	has_many :cliq_invitations
+
 	validates :first_name, :presence => true
 	validates :last_name, :presence => true
 	validates :email, :uniqueness => true

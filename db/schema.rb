@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010002915) do
+ActiveRecord::Schema.define(:version => 20111023235701) do
+
+  create_table "cliq_invitations", :force => true do |t|
+    t.integer  "member_id"
+    t.string   "recipient_email"
+    t.boolean  "is_approved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cliq_members", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "following_member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "members", :force => true do |t|
     t.string   "first_name"

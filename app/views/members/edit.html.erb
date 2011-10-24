@@ -4,3 +4,17 @@
 <% end %>
 
 <%= render 'form' %>
+
+<%= link_to 'View your Cliq', :controller => "cliq", :action => "members" %>	
+<br /><br />
+
+<h2>You have the following <%= @invitations.count %> pending invitations</h2>
+<% @invitations.each do |invitation| %>
+	
+<%= form_tag("/cliq/add", :method => "post") do %>
+  <%= label_tag(:invite_id, invitation.member.first_name + " has sent you an invite!") %>
+  <%= hidden_field_tag(:invite_id, invitation.id) %>
+  <%= submit_tag("Accept") %>
+<% end %>
+
+<% end %>

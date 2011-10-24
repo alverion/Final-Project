@@ -27,10 +27,11 @@ skip_before_filter :authorize, :only => [:new, :create]
   # GET /members/1.json
   def whoami
     @member = Member.find(session[:member_id])
+    @invitations = CliqInvitation.where(:recipient_email => @member.email, :is_approved => false)
 
     respond_to do |format|
       format.html { render action: "edit" }
-      format.json { render json: @member }
+      format.json { render :json => {:member => @member, :invitations => @invitations} }
     end
   end
 

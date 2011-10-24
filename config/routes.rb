@@ -1,11 +1,23 @@
 CliqSynq::Application.routes.draw do
   
+  get "cliq/members"
+
+  get "cliq/add"
+
+  get "cliq/remove"
+
   get 'whoami' => 'members#whoami'
   
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
+  end
+
+  controller :cliq do
+    post 'cliq/invite' => :invite
+    post 'cliq/add' => :add
+    post 'cliq/rem' => :rem
   end
 
   get "members/whoami"
